@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    enabled_repos:
+      - "rhel-8-for-x86_64-baseos-rpms"
+      - "rhel-8-for-x86_64-appstream-rpms"
+
+
+  tasks:
+  - name: Enable specific repositories
+    rhsm_repository:
+      name: "{{ item }}"
+      state: enabled
+    with_items: "{{ enabled_repos }}"
