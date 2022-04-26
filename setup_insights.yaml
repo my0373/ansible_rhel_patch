@@ -4,6 +4,11 @@
 
   tasks:
   # Normal Register
+  - name: Install the latest version of the insights client
+    yum:
+      name: insights-client
+      state: latest
+
   - name: Register the insights client
     redhat.insights.insights_register:
       state: present
