@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  # Normal Register
+  - name: Register the insights client
+    insights_register:
+      state: present
